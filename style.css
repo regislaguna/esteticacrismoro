@@ -1,0 +1,160 @@
+/*estilo da página*/
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+/*Formatação cabeçalho*/
+.area-header {
+    height: 100px;
+    width: 100%;
+    display: flex; 
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 4px 6px -6px #222;
+}
+/*Foratação área logo*/
+.area-logo {
+    height: 100%;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.area-logo img {
+    width: 50px;
+    height: 50px;
+}
+/*Formatação área de naveção*/
+.area-nav {
+    height: 100%;
+    width: 100%;
+}
+
+.nav-list {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 10px;
+}
+
+.nav-list-item {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: #1e3932;
+    text-transform: uppercase;
+    letter-spacing: 0.7;
+}
+
+.nav-list-item:hover{
+    color: #008248;
+    cursor: pointer;
+}
+
+main{
+    display: flex;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*width: 1440px;*/
+    
+    /*Pega 75% do tamanho do pai (body)*/
+}
+
+.apresentation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin-bottom: 20px;
+    gap: 12px
+    width: 100%; 
+}
+
+p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.pages{
+    display: none;
+   
+}
+
+
+.pages:first-child{
+    display: block;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+  }
+
+.form-input {
+    width: 100%;
+    margin: 10px 0px 10px 50px;
+    padding: 5px;
+    color:#000000;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 3px 5px #0ccb2271;
+}
+
+.form-input-question{
+    gap: 12px;
+}
+
+textarea {
+    resize: none;
+}
+
+
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    gap: 5px;
+    background-color: #008248;
+    padding: 10px;
+    width: 100vw;
+    /*height: 100vw;*/
+    
+}
+
+.saudacao{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.apresentacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+

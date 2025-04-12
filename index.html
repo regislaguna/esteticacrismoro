@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+<header class="area-header">
+<!-- Menu de navegação-->
+<div class="area-logo">
+<img src="" alt="">
+</div>
+<nav class="area-nav">
+<ul class="nav-list">
+<li class="nav-list-item">Home</li>
+<li class="nav-list-item">Sobre</li>
+<li class="nav-list-item">Cadastro</a></li>
+<li class="nav-list-item">Contato</li>
+</ul>
+</nav>
+</header>
+<main class="content">
+<!-- Informações inicias de cadastro e contato -->
+<article class="apresentation">
+<h1>Sejam bem-vindos à clinica Cris Moro!</h1>
+<p>
+A Cris Moro é uma clinica de estética que tem como pilar o atendimento único e exclusivo para cada cliente. 
+Prencha as perguntas abaixo para que nossa equipe possa indicar o melhor tratamento para você!
+</p>
+<div class="progress-container">
+    <progress id="form-progress" value="0" max="100"> 0% completo</progress>
+    <span id="progress-text">0% completo</span>
+</div>
+ </article>
+<section id="cadastro" aria-labelledby="cadastro-title">
+    <h2 id="cadastro-title" class="sr-only">Fomulario Anamnese</h2>
+<form id="clinica-form" action="/cadastrar" method="POST" novalidate>
+<fieldset class="form-section">
+
+    <legend> Dados Pessoais</legend>
+    
+    <div class="form-group">
+        <label for="nome">Nome completo: <span class="required">*</span></label>
+        <input type="text" id="nome" class="form-input" name="nome" required aria-required="true" autofocus placeholder="Digite seu nome completo">
+        </div>
+        
+        <div class="form-group">
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" class="form-input" name="endereco" autofocus placeholder="Rua, número, complemento">
+        </div>
+        
+        <div class="form-group">
+        <label for="email">Email: <span class="required">*</span> </label>
+        <input type="email" id="email" class="form-input" name="email" aria-required="true">
+        </div>
+        
+        <div class="form-group">
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" class="form-input" name="telefone">
+        </div>
+
+    </div>
+
+</fieldset>
+
+    <div class="form-group">
+
+<section>
+<div class="form-group">
+    <h3>Motivos da consulta estética</h3>
+<label for="respostas"> Descreva em poucas palavras:</label>
+<div>
+<textarea name="respostas" rows="4" required></textarea>
+</div>
+                    <!-- Repita isso para 20 perguntas -->
+</div>
+<div>
+<p>1. Você já realizou algum tratamento estético?</p>
+<label>
+<input type="radio" name="servicos" class="form-input-question" value="Facial"> Sim
+</label><br>
+<label>
+<input type="radio" name="servicos" class="form-input-question" value="Corporal"> Não
+</label><br>
+</div>
+<div>
+<p>2. Qual o motivo para sua consulta? Assinale uma ou mais opções. </p>
+<label>
+    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Gordura localizada
+    </label><br>
+    <label>
+    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Celulite
+    </label><br>
+    <label>
+    <input type="checkbox" name="servicos" class="form-input-question" value="Manicure"> Retenção de líquidos
+    </label><br>
+    <label>
+    <input type="checkbox" name="servicos" class="form-input-question" value="Estetica"> Flacidez
+    </label><br>
+    <input type="checkbox" name="servicos" class="form-input-question" value="Estetica"> Lipedema
+    </label><br>
+</div>
+<div>
+    <p>3. Obteve resultados satisfatórios?</p>
+    <label>
+    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+    </label><br>
+    <label>
+    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+    </label><br>
+    </div>
+    <div>
+        <p>4. Qual a área que te incomoda mais? </p>
+        <label>
+            <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Abdômen
+            </label><br>
+            <label>
+            <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Braços
+            </label><br>
+            <label>
+            <input type="checkbox" name="servicos" class="form-input-question" value="Manicure"> Pernas
+            </label><br>
+            <label>
+            <input type="checkbox" name="servicos" class="form-input-question" value="Estetica"> Costas
+            </label><br>
+            <input type="checkbox" name="servicos" class="form-input-question" value="Estetica"> Glúteos
+            </label><br>
+            <label for="respostas">Outras áreas? Qual?:</label>
+            <div>
+            <textarea name="respostas" rows="4" required></textarea>
+            </div>
+        </div>
+        <div>
+            <h3>Histórico de vida</h3>
+            <label for="respostas">Descreva um pouco sobre você!:</label>
+            <div>
+            <textarea name="respostas" rows="4" required></textarea>
+            </div>
+        </div>
+        <div>
+            <label for="respostas"> 5. Qual o seu tipo sanguíneo:</label>
+            <div>
+            <textarea name="respostas" rows="1" required></textarea>
+            </div>
+            </div>
+            <div>
+                <p>6. Qual tipo de parto você nasceu?</p>
+                <label>
+                <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Normal
+                </label><br>
+                <label>
+                <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Cesária
+                </label><br>
+                <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não sei
+                </div>
+                <div>
+                    <p>7. Recebeu amamentação?</p>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não sei
+                    </div>
+                    <div>
+                    <label for="respostas"> 8. Houve algum fato importante da sua infância ou adolescência?
+                    (Doença e/ou algum trauma)</label>
+                    <div>
+                    <textarea name="respostas" rows="4" required></textarea>
+                    </div>
+                    </div>
+                    <div>
+                        <h3>
+                            EXCLUSIVO PARA MULHERES
+                        </h3>
+                        <p>
+                            As questões abaixo é exclusivo para mulheres responderem, caso não seja, pular para seção de antecedentes familiares.
+                        </p>
+                    </div>
+                    <div>
+                        <label for="respostas"> 9. Idade da menarca:</label>
+                        <div>
+                        <textarea name="respostas" rows="1" required></textarea>
+                        </div>
+                        </div>
+                        <div>
+                            <p>10. Qual a data da sua última menstruação?</p>
+                            <label>
+                            <input type="date" name="servicos" class="form-input-question" value="Facial"> Normal
+                            </label><br>
+                            </div>
+                            <p>11. Ciclo mesntrual: Regula?</p>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <div>
+                    <label for="respostas"> 12. Se sim, quantos dias?</label>
+                    <div>
+                    <textarea name="respostas" rows="2" required></textarea>
+                    </div>
+                    </div>
+                    <div>
+                    <label for="respostas"> 13. Faz uso de anticoncepcional?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </label>
+                    </div>
+                    <div>
+                    <label for="respostas"> 14. Qual anticoncepcional?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Contraceptivo via oral
+                </label><br>
+                <label>
+                <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> DIU
+                </label><br>
+                <label>
+                <input type="checkbox" name="servicos" class="form-input-question" value="Manicure"> Contraceptivo injetável
+                <label>
+                <input type="checkbox" name="servicos" class="form-input-question" value="Estetica"> Contraceptivo implantado
+                </label><br>
+                <input type="checkbox" name="servicos" class="form-input-question" value="Estetica"> Outros métodos
+                </label><br>
+                    <div>
+                    <label for="respostas"> 15. Cólicas menstruais?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    <label>
+                    <div>
+                    <label for="respostas"> 16. TPM?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    <label>
+                    <label for="respostas"> 17. Dores nas costas em período mesntrual?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    <label>
+                    <label for="respostas"> 18. Dores nas mamas em período mesntrual?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    <label>
+                        <div>
+                            <h3>Antecedentes Familiares</h3>
+                            <label for="respostas">Descreva um pouco sobre!:</label>
+                            <div>
+                            <textarea name="respostas" rows="4" required></textarea>
+                            </div>
+                        </div>
+                    <div>
+                    <label for="respostas"> 19. Histórico de doenças na família (pai, mãe, irmãos, avós paterno e/ou materno). </label>
+                    <div>
+                    <textarea name="respostas" rows="5" required></textarea>
+                    </div>
+                    </div>
+                    <div>
+                    <label for="respostas"> 20. Histórico de doenças na família (pai, mãe, irmãos, avós paterno e/ou materno). </label>
+                    <div>
+                    <textarea name="respostas" rows="5" required></textarea>
+                    </div>
+                    </div>
+                    <div>
+                        <h3>Doença na família</h3>
+                    <div>
+                    <label for="respostas"> 21. Diabetes Mellitus (DM)</label>
+                     </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Pai
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Mãe
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Irmãos
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Outros
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Nenhum
+                    </div>
+                    <div>
+                    <label for="respostas"> 22. Doenças cardiovasculares (DCV)</label>
+                     </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Pai
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Mãe
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Irmãos
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Outros
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Nenhum
+                    </div>
+                    <label for="respostas"> 23. Hipertensão Arterial Sistêmica (HAS)</label>
+                     </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Pai
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Mãe
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Irmãos
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Outros
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Nenhum
+                    </div>
+                    <label for="respostas"> 24. Doenças Reenais</label>
+                     </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Pai
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Mãe
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Irmãos
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Outros
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Nenhum
+                    </div>
+                    <label for="respostas"> 25. Doenças hepáticas</label>
+                     </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Pai
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Mãe
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Irmãos
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Outros
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Nenhum
+                    </div>
+                    <label for="respostas"> 26. Câncer</label>
+                     </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Pai
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Mãe
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Irmãos
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Outros
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Nenhum
+                    </div>
+                    <label for="respostas"> 27. Obesidade</label>
+                     </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Pai
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Mãe
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Irmãos
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Outros
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Nenhum
+                    </div>
+                    <div>
+                        <h3>PROBLEMAS/ALTERAÇÕES</h3>
+                        <label for="respostas">Descreva um pouco sobre!:</label>
+                        <div>
+                        <textarea name="respostas" rows="4" required></textarea>
+                        </div>
+                    </div>
+                    <label for="respostas"> 28. Teve COVID-19?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 29. Tomou a vacina da covid?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 30. Possui ou teve trombose?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 31. Teve AVC?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 32. Possui cansaço a pequenos esforços
+                        ou caminhadas?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 33. Possui dores nas pernas??</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 34. Possui ou teve varizes?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 35. Suas pernas incham??</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 36. Sofreu convulsões ou epilepsia?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 37. Possui tonturas ou teve desmaios?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 38. Possui dores de cabeça?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 39. Fez ou faz uso de drogas?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 40. Você possui aftas?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 41. Você possui gengivite? (Gengiva inflamada)?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 42. Você tem bruxismo?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 43. Você tem amálgamas? (Material metálico odontológico no tratamento e obturação dentária)?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 44. Você tem mastigação lenta ou rápida?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Entre 5 à 10 minutos
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Entre 10 à 15 minutos
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Mais que 15 minutos
+                    </div>
+                    <label for="respostas"> 45. Possui dificuldade de digestão?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 46. Consome algum alimento específico que faça mal na sua digestão?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <div>
+                        <label for="respostas">Se sua resposta anterior foi "Sim", informe qual alimento específico;
+                            Caso a resposta seja "Não", informe "Não existe".!:</label>
+                        <div>
+                        <textarea name="respostas" rows="2" required></textarea>
+                        </div>
+                    <label for="respostas"> 47. Você possui alterações gástricas?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 48. Você evacua diariamente??</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 49. Qual período você tem mais evacuação?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Manhã
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Tarde
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Noite
+                    </div>
+                    <label for="respostas"> 50. Sente dificuldade de fazer evacuação?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 51. Usa algum tipo de laxante?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <label for="respostas"> 52. Qual o tipo de fezes que você evacua conforme a escala e cor da tabela?</label>
+                    </div>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Tipo 1
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Tipo 2
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Tipo 3
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Tipo 4
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Tipo 5
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Tipo 6
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Tipo 7
+                    </div>
+                    <div>
+                        <h3>ALIMENTAÇÂO</h3>
+                        <label for="respostas">Descreva um pouco sobre!:</label>
+                        <div>
+                        <textarea name="respostas" rows="4" required></textarea>
+                        </div>
+                    <label for="respostas"> 53. Quem realiza o preparo da sua alimentação?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Eu mesmo
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Família e/ou empregado(a)
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Outros (se somente consome preparo de alimentos fora do ambiente caseiro)
+                    <div>
+                </div>
+                    <label for="respostas"> 54. Quem realiza a compra dos alimentos que você consome?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Eu mesmo
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Família e/ou empregado(a)
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Ninguém (se somente consome preparo de alimentos fora do ambiente caseiro)
+                    </div>
+                    <div>
+                    <label for="respostas"> 55. Qual o local das suas refeições?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Somente em Cadastro
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Em casa e no trabalho (marmita)
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Em casa e em restaurantes
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Somente em restaurantes
+                    </div>
+                    <div>
+                    <label for="respostas"> 56. Já fez algum tipo de dieta?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <div>
+                    <label for="respostas"> 57. Bebe líquidos durante as refeições?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                    </div>
+                    <div>
+                        <label for="respostas">Se sua resposta anterior foi "Sim", informe quais líquidos você bebe;
+                            Caso a resposta seja "Não", informe "Não bebo".</label>
+                        <div>
+                        <textarea name="respostas" rows="2" required></textarea>
+                        </div>
+                    <div>
+                        <label for="respostas">Quantos copos ou litros de água você bebe por dia?.</label>
+                        <div>
+                        <textarea name="respostas" rows="2" required></textarea>
+                        </div>
+                    <label for="respostas"> 58. Período do dia que sente mais fome?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Manhã
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Tarde
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Noite
+                    <label for="respostas"> 59. Qual a sua preferência de sabor?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Doce
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal">  Salgado
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Agridoce
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Amargo
+                    <div>
+                    <label for="respostas"> 60. Qual a sua preferência alimentar? Pode ser várias opções!?</label>
+                    </div>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Carnes
+                    </label><br>
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Frutas
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Legumes e verduras
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Massas
+                    <label>
+                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Industrializados e embutidos
+                    </div>
+                    <div>
+                        <label for="respostas">Você possui aversão alimentar? (Rejeição a certos tipos de alimentos por gosto pessoal)
+                            Se você possui, cite quais alimentos você tem aversão;
+                            Caso a resposta seja "Não", informe "Não possuo"..</label>
+                        <div>
+                        <textarea name="respostas" rows="2" required></textarea>
+                        </div>
+                        <div>
+                            <label for="respostas"> 61. Você possui compulsão alimentar? (Transtorno alimentar pela vontade de comer em grandes quantidades) </label>
+                            </div>
+                            <label>
+                            <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                            </label><br>
+                            <label>
+                            <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                            </div>
+                            <div>
+                                <h3>ATIVIDADE FÍSICA</h3>
+                                <label for="respostas">Descreva um pouco sobre!:</label>
+                                <div>
+                                <textarea name="respostas" rows="4" required></textarea>
+                                </div>
+                            <label for="respostas"> 62. Você pratica atividades físicas?</label>
+                            </div>
+                            <label>
+                            <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Sim
+                            </label><br>
+                            <label>
+                            <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Não
+                            <label>
+                            <input type="checkbox" name="servicos" class="form-input-question" value="Corporal">  Algumas vezes
+                            <div>
+                                <label for="respostas">Se sua resposta anterior foi "Sim" ou "Algumas vezes", informe qual o tempo de duração que você pratica;
+                                    Caso a resposta seja "Não", informe "Não pratico".</label>
+                                <div>
+                                <textarea name="respostas" rows="2" required></textarea>
+                                </div>
+                                <div>
+                                    <label for="respostas"> 63. Com que frequência semanal você pratica atividade física?</label>
+                                    </div>
+                                    <label>
+                                    <input type="checkbox" name="servicos" class="form-input-question" value="Facial"> Regularmente
+                                    </label><br>
+                                    <label>
+                                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Quase sempre
+                                    <label>
+                                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> raramente
+                                    <label>
+                                    <input type="checkbox" name="servicos" class="form-input-question" value="Corporal"> Nunca
+                                    </div> 
+<button type="submit">Enviar Respostas</button>
+</form>
+</section>
+</main>
+<script>
+function mostrarConteudo (page){
+document.querySelectorAll('.pages').forEach(el=>el.style.display = 'none');
+document.getElementById(page).style.display = 'block';
+}
+</script>
+</body>
+</html>
