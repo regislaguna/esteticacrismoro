@@ -1,6 +1,6 @@
 :root {
     /* Cores */
-    --primary-color: #008248;
+    --primary-color: #a10d8c;
     --secondary-color: #1e3932;
     --text-color: #2d2d2d;
     --light-gray: #f5f5f5;
@@ -9,31 +9,31 @@
     --white: #ffffff;
     --black: #000000;
     --error-color: #d32f2f;
-    
+
     /* Espaçamentos */
     --spacing-xs: 4px;
     --spacing-sm: 8px;
     --spacing-md: 16px;
     --spacing-lg: 24px;
     --spacing-xl: 32px;
-    
+
     /* Bordas */
     --border-radius-sm: 4px;
     --border-radius-md: 8px;
     --border-radius-lg: 12px;
-    
+
     /* Sombras */
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
     --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
     --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
   }
-  
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
@@ -43,7 +43,7 @@
     display: flex;
     flex-direction: column;
   }
-  
+
   /* Cabeçalho */
   .area-header {
     height: 80px;
@@ -57,7 +57,7 @@
     top: 0;
     z-index: 100;
   }
-  
+
   .area-logo {
     width: 120px;
     height: 100%;
@@ -66,18 +66,18 @@
     align-items: center;
     padding: var(--spacing-md);
   }
-  
+
   .area-logo img {
     width: 50px;
     height: 50px;
     object-fit: contain;
   }
-  
+
   .area-nav {
     flex: 1;
     height: 100%;
   }
-  
+
   .nav-list {
     height: 100%;
     display: flex;
@@ -86,7 +86,7 @@
     list-style: none;
     gap: var(--spacing-xl);
   }
-  
+
   .nav-list-item {
     padding: var(--spacing-sm) var(--spacing-md);
     font-weight: 600;
@@ -97,12 +97,17 @@
     transition: all 0.3s ease;
     position: relative;
   }
-  
+
+  .nav-list-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
   .nav-list-item:hover {
     color: var(--primary-color);
     cursor: pointer;
   }
-  
+
   .nav-list-item::after {
     content: '';
     position: absolute;
@@ -114,11 +119,11 @@
     background-color: var(--primary-color);
     transition: width 0.3s ease;
   }
-  
+
   .nav-list-item:hover::after {
     width: 100%;
   }
-  
+
   /* Conteúdo Principal */
   main {
     flex: 1;
@@ -127,13 +132,13 @@
     margin: 0 auto;
     padding: var(--spacing-xl);
   }
-  
+
   .content {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xl);
   }
-  
+
   .apresentation {
     display: flex;
     flex-direction: column;
@@ -142,19 +147,20 @@
     gap: var(--spacing-md);
     padding: var(--spacing-xl) 0;
   }
-  
+
   .apresentation h1 {
     color: var(--primary-color);
     font-size: 2.2rem;
     margin-bottom: var(--spacing-sm);
   }
-  
+
   .apresentation p {
     max-width: 800px;
     line-height: 1.8;
     font-size: 1.1rem;
+    text-align: justify;
   }
-  
+
   /* Progresso */
   .progress-container {
     width: 100%;
@@ -164,32 +170,32 @@
     gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
   }
-  
+
   progress {
     flex: 1;
     height: 8px;
     border-radius: var(--border-radius-lg);
     overflow: hidden;
   }
-  
+
   progress::-webkit-progress-bar {
     background-color: var(--medium-gray);
     border-radius: var(--border-radius-lg);
   }
-  
+
   progress::-webkit-progress-value {
     background-color: var(--primary-color);
     border-radius: var(--border-radius-lg);
     transition: width 0.5s ease;
   }
-  
+
   /* Formulário */
   form {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xl);
   }
-  
+
   .form-section {
     background-color: var(--white);
     padding: var(--spacing-xl);
@@ -199,7 +205,7 @@
     flex-direction: column;
     gap: var(--spacing-lg);
   }
-  
+
   .form-section legend {
     font-size: 1.3rem;
     font-weight: 600;
@@ -207,22 +213,22 @@
     padding: 0 var(--spacing-sm);
     margin-bottom: var(--spacing-md);
   }
-  
+
   .form-group {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xs);
   }
-  
+
   .form-group label {
     font-weight: 500;
     color: var(--secondary-color);
   }
-  
+
   .form-group .required {
     color: var(--error-color);
   }
-  
+
   .form-input, textarea, select {
     width: 100%;
     padding: var(--spacing-sm) var(--spacing-md);
@@ -231,23 +237,23 @@
     font-size: 1rem;
     transition: all 0.3s ease;
   }
-  
+
   .form-input:focus, textarea:focus, select:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 2px rgba(0, 130, 72, 0.2);
   }
-  
+
   textarea {
     resize: vertical;
     min-height: 120px;
   }
-  
+
   .hint {
     font-size: 0.8rem;
     color: var(--dark-gray);
   }
-  
+
   /* Opções */
   .options {
     display: flex;
@@ -255,20 +261,20 @@
     gap: var(--spacing-sm);
     margin-top: var(--spacing-xs);
   }
-  
+
   .option-label {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
     cursor: pointer;
   }
-  
+
   .options-checkbox-group {
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacing-md);
   }
-  
+
   /* Botões */
   .form-actions {
     display: flex;
@@ -276,7 +282,7 @@
     gap: var(--spacing-md);
     margin-top: var(--spacing-xl);
   }
-  
+
   .primary-button, .secondary-button {
     padding: var(--spacing-md) var(--spacing-xl);
     border: none;
@@ -286,29 +292,29 @@
     cursor: pointer;
     transition: all 0.3s ease;
   }
-  
+
   .primary-button {
     background-color: var(--primary-color);
     color: var(--white);
   }
-  
+
   .primary-button:hover {
     background-color: #006f3c;
     transform: translateY(-1px);
     box-shadow: var(--shadow-md);
   }
-  
+
   .secondary-button {
     background-color: var(--medium-gray);
     color: var(--text-color);
   }
-  
+
   .secondary-button:hover {
     background-color: #d0d0d0;
     transform: translateY(-1px);
     box-shadow: var(--shadow-md);
   }
-  
+
   /* Rodapé */
   .page-footer {
     text-align: center;
@@ -317,11 +323,11 @@
     color: var(--white);
     margin-top: auto;
   }
-  
+
   .page-footer p {
     margin-bottom: var(--spacing-sm);
   }
-  
+
   /* Responsividade */
   @media (max-width: 768px) {
     .area-header {
@@ -329,38 +335,370 @@
       flex-direction: column;
       padding: var(--spacing-md);
     }
-    
+
     .nav-list {
       flex-direction: column;
       gap: var(--spacing-sm);
       padding: var(--spacing-md) 0;
     }
-    
+
     main {
       padding: var(--spacing-md);
     }
-    
+
     .form-section {
       padding: var(--spacing-lg);
     }
-    
+
     .form-actions {
       flex-direction: column;
     }
-    
+
     .options-checkbox-group {
       flex-direction: column;
       gap: var(--spacing-sm);
     }
   }
-  
+
   /* Estados de erro */
   .error {
     border-color: var(--error-color) !important;
   }
-  
+
   .error-message {
     color: var(--error-color);
     font-size: 0.8rem;
     margin-top: var(--spacing-xs);
   }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 400px;
+}
+.modal-content button {
+  margin-top: 1rem;
+}
+
+/* --- Novo CSS para o Botão Relatório --- */
+.header-button-container {
+    margin-left: auto; /* Empurra o botão para a direita */
+    padding-right: 20px; /* Espaçamento da borda direita, ajuste conforme seu layout */
+}
+
+.report-button {
+    background-color: #a10d8c; /* Cor de fundo rosa */
+    color: white; /* Cor do texto */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none; /* Remover sublinhado do link */
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Transição suave na hover */
+    cursor: pointer;
+    display: inline-block; /* Para padding e largura funcionarem bem */
+}
+
+.report-button:hover {
+    background-color: #0056b3; /* Cor mais escura ao passar o mouse */
+}
+
+/* Ajustes para o layout do header se necessário */
+.area-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribui logo, nav e botão */
+    padding: 10px 20px; /* Adicione padding para as bordas */
+    /* Outros estilos do seu header */
+}
+
+/* --- Estilos Específicos para o Relatório --- */
+
+./* Seu CSS existente: :root, *, body, area-header, area-logo, etc. */
+
+/* --- Estilos Específicos para o Relatório (Revisado) --- */
+
+.relatorio-resultados {
+    background-color: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-top: var(--spacing-xl); /* Espaçamento após o formulário */
+    /* Remove padding lateral se o scroll-container já tiver borda para evitar repetição */
+    /* padding: 0; */ /* Se você preferir que o padding seja controlado pelo scroll container */
+}
+
+.relatorio-resultados h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+/* Contêiner da Tabela com Rolagem Vertical (Revisado) */
+.relatorio-scroll-vertical-container {
+    max-height: 500px; /* Ajuste esta altura conforme necessário */
+    overflow-y: auto;
+    overflow-x: hidden; /* Oculta a rolagem horizontal para o contêiner vertical */
+    border: 1px solid var(--medium-gray); /* Borda sutil para o contêiner de rolagem */
+    border-radius: var(--border-radius-md); /* Arredonda as bordas do contêiner */
+    padding: var(--spacing-sm); /* Adiciona um pequeno padding interno para que a barra de rolagem não cole na borda */
+}
+
+/* Estilos para navegadores baseados em WebKit (Chrome, Safari, Edge, Opera) */
+.relatorio-scroll-vertical-container::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem vertical */
+}
+
+.relatorio-scroll-vertical-container::-webkit-scrollbar-track {
+    background: var(--light-gray); /* Cor do fundo da trilha da barra de rolagem */
+    border-radius: 10px;
+}
+
+.relatorio-scroll-vertical-container::-webkit-scrollbar-thumb {
+    background: var(--dark-gray); /* Cor do "polegar" (a parte que você arrasta) */
+    border-radius: 10px;
+}
+
+.relatorio-scroll-vertical-container::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color); /* Cor ao passar o mouse sobre o polegar */
+}
+
+/* Estilos para Firefox */
+.relatorio-scroll-vertical-container {
+    scrollbar-width: thin;
+    scrollbar-color: var(--dark-gray) var(--light-gray);
+}
+
+/* Contêiner da Tabela com Rolagem Horizontal (já existente, mas reavaliado) */
+.tabela-scroll-container {
+    overflow-x: auto; /* Permite rolagem horizontal */
+    width: 100%; /* Garante que ele ocupe 100% do seu pai (.relatorio-scroll-vertical-container) */
+    /* background-color: var(--white); /* Pode ser útil se o pai tiver padding */
+}
+
+.tabela-relatorio {
+    width: 100%; /* Ocupa 100% do tabela-scroll-container */
+    min-width: 1200px; /* Adiciona uma largura mínima para a tabela, evitando que colunas fiquem muito estreitas antes da rolagem horizontal */
+                      /* AJUSTE ESTE VALOR conforme o número de colunas e o conteúdo */
+    border-collapse: collapse;
+    margin-top: 0; /* Remove margin-top se o padding for no contêiner externo */
+}
+
+.tabela-relatorio th,
+.tabela-relatorio td {
+    padding: var(--spacing-md) var(--spacing-lg); /* Aumenta um pouco o padding lateral */
+    text-align: left;
+    border-bottom: 1px solid var(--medium-gray);
+    white-space: nowrap; /* Evita que o texto quebre linhas dentro da célula, forçando a rolagem horizontal */
+}
+
+.tabela-relatorio th {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    position: sticky; /* Fixa o cabeçalho ao rolar verticalmente */
+    top: 0; /* Fixa no topo do contêiner de rolagem */
+    z-index: 2; /* Garante que o cabeçalho fique acima do conteúdo ao rolar */
+    border-bottom: 1px solid var(--secondary-color); /* Ajuste a borda para não ter duas */
+}
+/* Estilo para a mensagem de "Nenhum cliente encontrado" */
+.content > p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    padding: var(--spacing-xl);
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-top: var(--spacing-xl);
+}
+
+/* Responsividade (Revisado para Scroll Vertical e Horizontal) */
+@media (max-width: 768px) {
+    /* Desabilita rolagem vertical e horizontal nos contêineres quando a tabela se empilha */
+    .relatorio-scroll-vertical-container {
+        max-height: none;
+        overflow-y: visible;
+        overflow-x: visible;
+        border: none; /* Remove a borda para evitar duplicação visual */
+        padding: 0; /* Remove padding */
+    }
+
+    .tabela-scroll-container {
+        overflow-x: visible;
+        width: auto; /* Permite que o width seja ajustado pelo display: block */
+    }
+
+    .tabela-relatorio {
+        min-width: auto; /* Remove a largura mínima para responsividade total */
+        border: none; /* Remove borda da tabela se as linhas já tiverem */
+    }
+
+    .tabela-relatorio th,
+    .tabela-relatorio td {
+        white-space: normal; /* Permite que o texto quebre linha em telas pequenas */
+        padding: var(--spacing-md); /* Ajusta padding para telas pequenas */
+        border-bottom: none; /* remove border-bottom das células */
+    }
+    .tabela-relatorio tr {
+        border: 1px solid var(--medium-gray); /* Mantém borda nas linhas */
+        margin-bottom: var(--spacing-md);
+        border-radius: var(--border-radius-sm);
+        padding: var(--spacing-sm) 0; /* Adiciona padding à linha empilhada */
+    }
+    .tabela-relatorio td:last-child {
+        border-bottom: none; /* Remove borda da última célula na linha empilhada */
+    }
+    .tabela-relatorio td:before {
+        font-size: 0.9rem; /* Ajusta tamanho da fonte do label */
+    }
+    .relatorio-resultados {
+        padding: var(--spacing-lg); /* Ajusta padding do container em telas pequenas */
+    }
+}
+
+/* Estilo para a mensagem de "Nenhum cliente encontrado" */
+.content > p { /* Seleciona o parágrafo diretamente sob a main.content */
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    padding: var(--spacing-xl);
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-top: var(--spacing-xl);
+}
+
+/* Responsividade para a tabela em telas pequenas */
+@media (max-width: 768px) {
+    .tabela-relatorio,
+    .tabela-relatorio thead,
+    .tabela-relatorio tbody,
+    .tabela-relatorio th,
+    .tabela-relatorio td,
+    .tabela-relatorio tr {
+        display: block; /* Faz as células se comportarem como blocos */
+    }
+
+    .tabela-relatorio thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px; /* Esconde o cabeçalho original */
+    }
+
+    .tabela-relatorio tr {
+        border: 1px solid var(--medium-gray);
+        margin-bottom: var(--spacing-md);
+        border-radius: var(--border-radius-sm);
+    }
+
+    .tabela-relatorio td {
+        border: none;
+        position: relative;
+        padding-left: 50%; /* Espaço para o "cabeçalho" da célula */
+        text-align: right;
+    }
+
+    .tabela-relatorio td:before {
+        content: attr(data-label); /* Usa o atributo data-label como cabeçalho */
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 600;
+        color: var(--secondary-color);
+    }
+
+    .relatorio-resultados h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Se quiser que o menu de navegação fique mais centralizado,
+pode ajustar os margins do .area-nav ou do .header-button-container */
+/* .area-nav {
+    margin-left: auto;
+    margin-right: 20px;
+} */
+
+/* Adicione isso ao seu static/css/style.css */
+
+.tabela-scroll-container {
+    overflow-x: auto; /* Permite rolagem horizontal */
+    width: 100%;
+}
+
+/* Ajuste a media query se necessário para a tabela responsiva vertical */
+@media (max-width: 768px) {
+    /* Mantenha os estilos existentes para a tabela responsiva vertical */
+    .tabela-relatorio,
+    .tabela-relatorio thead,
+    .tabela-relatorio tbody,
+    .tabela-relatorio th,
+    .tabela-relatorio td,
+    .tabela-relatorio tr {
+        display: block; /* Faz as células se comportarem como blocos */
+    }
+
+    .tabela-relatorio thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px; /* Esconde o cabeçalho original */
+    }
+
+    .tabela-relatorio tr {
+        border: 1px solid var(--medium-gray);
+        margin-bottom: var(--spacing-md);
+        border-radius: var(--border-radius-sm);
+    }
+
+    .tabela-relatorio td {
+        border: none;
+        position: relative;
+        padding-left: 50%; /* Espaço para o "cabeçalho" da célula */
+        text-align: right;
+    }
+
+    .tabela-relatorio td:before {
+        content: attr(data-label); /* Usa o atributo data-label como cabeçalho */
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 600;
+        color: var(--secondary-color);
+    }
+
+    /* Oculta o scroll horizontal nesta visualização, já que a tabela está empilhada */
+    .tabela-scroll-container {
+        overflow-x: visible;
+    }
+}
+
+/* Opcional: Ajustar largura mínima da tabela para evitar que ela fique muito estreita antes de ativar o scroll */
+/* Se a tabela ficar muito espremida em certas resoluções, você pode tentar isso */
+/* .tabela-relatorio {
+    min-width: 900px; /* Exemplo: Defina uma largura mínima que faça sentido para suas colunas
+} */

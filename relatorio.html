@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Relatório de Clientes</title>
+</head>
+<body>
+<header class="area-header">
+    <div class="area-logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo da Clínica">
+    </div>
+    <div class="header-button-container">
+        <a href="{{ url_for('logout') }}" class="report-button">Sair</a>
+    </div>
+</header>
+
+<main class="content">
+    <article class="apresentation">
+        <h1>Relatório de Clientes</h1>
+        <p>Pesquise pelo nome ou telefone para visualizar os dados cadastrados pelos clientes.</p>
+    </article>
+
+    <section id="relatorio">
+        <form method="GET" action="/relatorio" class="form-section">
+            <div class="form-group">
+                <label for="filtro">Buscar cliente:</label>
+                <input type="text" id="filtro" name="filtro" class="form-input" placeholder="Digite nome ou telefone" value="{{ filtro if filtro }}">
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="primary-button">Buscar</button>
+            </div>
+        </form>
+
+        {% if resultados %}
+        <div class="relatorio-resultados">
+            <h2>Resultados encontrados:</h2>
+            {# NOVO CONTÊINER PARA ROLAGEM VERTICAL #}
+            <div class="relatorio-scroll-vertical-container">
+                <div class="tabela-scroll-container"> {# Este é o contêiner para rolagem HORIZONTAL #}
+                    <table class="tabela-relatorio">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Telefone</th>
+                                <th>Endereço</th>
+                                <th>Data de Cadastro</th>
+                                <th>Tipo Sanguíneo</th>
+                                <th>Teve COVID?</th>
+                                <th>Vacina COVID?</th>
+                                <th>Idade Menarca</th>
+                                <th>Ciclo Menstrual</th>
+                                <th>Usa Contraceptivo?</th>
+                                <th>Tipo Contraceptivo</th>
+                                <th>Tratamento Prévio</th>
+                                <th>Condição Saúde</th>
+                                <th>Motivo Consulta</th>
+                                <th>Retenção Líquidos?</th>
+                                <th>Cansaço Excessivo?</th>
+                                <th>Atividade Física</th>
+                                <th>Definição Alimentação</th>
+                                <th>Já Seguiu Dieta?</th>
+                                <th>Bebe Líquidos Refeições?</th>
+                                <th>Aversão Alimentar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cliente in resultados %}
+                            <tr>
+                                <td data-label="Nome">{{ cliente.nome }}</td>
+                                <td data-label="Email">{{ cliente.email }}</td>
+                                <td data-label="Telefone">{{ cliente.telefone }}</td>
+                                <td data-label="Endereço">{{ cliente.endereco }}</td>
+                                <td data-label="Data de Cadastro">{{cliente.data_cadastro.strftime('%d/%m/%Y %H:%M:%S') if cliente.data_cadastro else 'Não informado'}}</td>
+                                <td data-label="Tipo Sanguíneo">{{ cliente.tipo_sanguineo }}</td>
+                                <td data-label="Teve COVID?">{{ cliente.teve_covid }}</td>
+                                <td data-label="Vacina COVID?">{{ cliente.vacina_covid }}</td>
+                                <td data-label="Idade Menarca">{{cliente.idade_menarca}}</td>
+                                <td data-label="Ciclo Menstrual">{{ cliente.ciclo_menstrual }}</td>
+                                <td data-label="Usa Contraceptivo?">{{ cliente.usa_contraceptivo }}</td>
+                                <td data-label="Tipo Contraceptivo">{{ cliente.tipo_contraceptivo }}</td>
+                                <td data-label="Tratamento Prévio">{{ cliente.tratamento_previo }}</td>
+                                <td data-label="Condição Saúde">{{ cliente.condicao_saude }}</td>
+                                <td data-label="Motivo Consulta">{{ cliente.motivo_consulta }}</td>
+                                <td data-label="Retenção Líquidos?">{{ cliente.retencao_liquidos }}</td>
+                                <td data-label="Cansaço Excessivo?">{{cliente.cansaco_excessivo}}</td>
+                                <td data-label="Atividade Física">{{ cliente.pratica_atividade_fisica }}</td>
+                                <td data-label="Definição Alimentação">{{ cliente.definicao_alimentacao }}</td>
+                                <td data-label="Já Seguiu Dieta?">{{ cliente.ja_seguiu_dieta }}</td>
+                                <td data-label="Bebe Líquidos Refeições?">{{ cliente.bebe_liquidos_refeicoes }}</td>
+                                <td data-label="Aversão Alimentar">{{ cliente.aversao_alimentar }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div> {# Fim do relatorio-scroll-vertical-container #}
+        </div>
+        {% elif filtro is not none %}
+        <p>Nenhum cliente encontrado para o filtro “{{filtro}}".</p>
+        {% else %}
+        <p>Utilize a barra de pesquisa acima para buscar clientes.</p>
+        {% endif %}
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+              <li class="flash-message {{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </section>
+</main>
+
+<footer class="page-footer">
+    <p>Clínica Cris Moro &copy; <span id="current-year"></span>. Todos os direitos reservados.</p>
+    <p>Entre em contato: contato@clinicacrismoro.com.br | (00) 0000-0000</p>
+</footer>
+<script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

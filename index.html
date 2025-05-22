@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
     <title>Document</title>
 </head>
 <body>
 <header class="area-header">
 <!-- Menu de navegação-->
 <div class="area-logo">
-<img src="" alt="">
+<img src="{{ url_for('static', filename='images/logo.png') }}" alt="">
 </div>
 <nav class="area-nav">
 <ul class="nav-list">
@@ -20,14 +20,17 @@
 <li class="nav-list-item">Contato</li>
 </ul>
 </nav>
+    <div class="header-button-container">
+        <a href="{{ url_for('relatorio') }}" class="report-button">Relatório</a>
+    </div>
 </header>
 <main class="content">
 <!-- Informações inicias de cadastro e contato -->
 <article class="apresentation">
 <h1>Sejam bem-vindos à clinica Cris Moro!</h1>
 <p>
-A Cris Moro é uma clinica de estética que tem como pilar o atendimento único e exclusivo para cada cliente. 
-Preencha as perguntas abaixo para que nossa equipe possa indicar o melhor tratamento para você!
+A Cris Moro é uma clínica de estética que tem como pilar o atendimento único e exclusivo para cada cliente.
+Preencha as perguntas abaixo para que a nossa equipe indique o melhor tratamento para você!
 </p>
 <div class="progress-container">
     <progress id="form-progress" value="0" max="100"> 0% completo</progress>
@@ -42,22 +45,22 @@ Preencha as perguntas abaixo para que nossa equipe possa indicar o melhor tratam
 <fieldset class="form-section">
 
     <legend> Dados Pessoais</legend>
-    
+
         <div class="form-group">
         <label for="nome">Nome completo: <span class="required">*</span></label>
         <input type="text" id="nome" class="form-input" name="nome" required aria-required="true"  placeholder="Digite seu nome completo">
         </div>
-        
+
         <div class="form-group">
         <label for="endereco">Endereço:</label>
         <input type="text" id="endereco" class="form-input" name="endereco" placeholder="Rua, número, complemento">
         </div>
-        
+
         <div class="form-group">
         <label for="email">Email: <span class="required">*</span> </label>
         <input type="email" id="email" class="form-input" name="email" aria-required="true" placeholder="exemplo@email.com">
         </div>
-        
+
         <div class="form-group">
         <label for="telefone">Telefone: <span class="required">*</span></label>
         <input type="tel" id="telefone" class="form-input" name="telefone" aria-required="true"  placeholder="(00) 00000-0000" pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}">
@@ -71,9 +74,8 @@ Preencha as perguntas abaixo para que nossa equipe possa indicar o melhor tratam
 <div class="form-group"></div>
 <label for="motivo-consulta"> 1. Descreva em poucas palavras suas motivações na busca por um tratamento estético<span class="required">*</span></label>
 <textarea id="motivo-consulta" name="motivo_consulta" rows="4" aria-required="true"  placeholder="Descreva seus objetivos com o tratamento"></textarea>
-</div>
 
-<div class="question-group">
+    <div class="question-group">
     <p class="question-text"> 2. Você já realizou algum tratamento estético? </p>
 </div>
 <div class="options">
@@ -89,52 +91,44 @@ Preencha as perguntas abaixo para que nossa equipe possa indicar o melhor tratam
         <div class="options-checkbox-group">
             <label class="option-label">
                 <input type="checkbox" name="motivos[]" value="gordura_localizada">Gordura localizada</label>
-            </label>
             <label class="option-label">
                 <input type="checkbox" name="motivos[]" value="celulite">Celulite</label>
-            </label>
             <label class="option-label">
                 <input type="checkbox" name="motivos[]" value="retenção-liquido">Retenção de liquido</label>
-            </label>
             <label class="option-label">
                 <input type="checkbox" name="motivos[]" value="flacidez">Flacidez</label>
-            </label>
             <label class="option-label">
                 <input type="checkbox" name="motivos[]" value="lipedema">Lipedema</label>
-            </label>
-        </div>  
+        </div>
     </div>
     <div class="question-group">
         <p class="question-text">4. Qual área te incomoda mais? (Marque todas que se aplicam)</p>
         <div class="options-checkbox-group">
             <label class="option-label">
                 <input type="checkbox" name="area_interesse[]" value="abdomen">Abdômen</label>
-            </label>
             <label class="option-label">
                 <input type="checkbox" name="area_interesse[]" value="bracos">Braços</label>
-            </label>
+
             <label class="option-label">
                 <input type="checkbox" name="area_interesse[]" value="pernas">Pernas</label>
-            </label>
+
             <label class="option-label">
                 <input type="checkbox" name="area_interesse[]" value="costas">Costas</label>
-            </label>
+
             <label class="option-label">
                 <input type="checkbox" name="area_interesse[]" value="gluteos">Glúteos</label>
-            </label>
-        </div>  
+        </div>
     </div>
-
 </fieldset>
    <!-- Seção 2: Historico de saúde -->
 <fieldset class="form-section">
 <legend>Histórico de saúde </legend>
 <div class="form-group">
 <label for="historico-saude"> 5. Possui alguma condição de saúde relevante ou já enfrentou alguma doença importante? (Descreva brevemente). <span class="required">*</span></label>
-<textarea id="historico-saude" name="historico_saude" rows="4" aria-required="true" autofocus placeholder="Descreva sua condição de saúde"></textarea>
+<textarea id="historico-saude" name="historico_saude" rows="4" aria-required="true" placeholder="Descreva sua condição de saúde"></textarea>
 </div>
 <div class="form-group">
-    <label for="tipo-sanguineo">6. Qual seu tipo sanguíneo?</label>
+    <label for="tipo-sanguineo">6. Qual o seu tipo sanguíneo?</label>
     <select id="tipo-sanguineo" name="tipo_sanguineo" class="form-input">
         <option>Selecione uma opção</option>
         <option value="A+">A+</option>
@@ -176,20 +170,15 @@ Preencha as perguntas abaixo para que nossa equipe possa indicar o melhor tratam
         <div class="options-checkbox-group">
             <label class="option-label">
                 <input type="checkbox" name="historico-doencas[]" value="diabetes">Diabetes</label>
-            </label>
             <label class="option-label">
                 <input type="checkbox" name="historico-doencas[]" value="doença-cardiovascular">Doenças cardiovascular</label>
-            </label>
             <label class="option-label">
                 <input type="checkbox" name="historico-doencas[]" value="hipertensao">Hipertensão</label>
-            </label>
             <label class="option-label">
                 <input type="checkbox" name="historico-doencas[]" value="cancer">Câncer</label>
-            </label>
             <label class="option-label">
-                <input type="checkbox" name="historico-doencas[]" value="obsidade">obsidade</label>
-            </label>
-        </div>  
+                <input type="checkbox" name="historico-doencas[]" value="obesidade">Obesidade</label>
+        </div>
     </div>
 </fieldset>
 
@@ -238,7 +227,7 @@ Preencha as perguntas abaixo para que nossa equipe possa indicar o melhor tratam
 <fieldset class="form-section">
 <legend>Alimentação e Rotina </legend>
 <div class="question-group">
-    <p class="question-text"> 13. Como define sua alimentação?</p>
+    <p class="question-text"> 13. Como define a sua alimentação?</p>
 </div>
 <div class="options">
 <label class="option-label">
@@ -271,10 +260,9 @@ Preencha as perguntas abaixo para que nossa equipe possa indicar o melhor tratam
     <label class="option-label">
     <input type="radio" name="bebida"  value="não"> Não
     </label>
-    </div>
     <div class="form-group">
         <label for="alimentacao-rotina"> 16. Possui aversão alimentar? Se sim, descreva:<span class="required">*</span></label>
-        <textarea id="alimentacao-rotina" name="alimentacao_rotina" rows="4" aria-required="true" autofocus placeholder="Descreva sua aversão"></textarea>
+        <textarea id="alimentacao-rotina" name="alimentacao_rotina" rows="4" aria-required="true" placeholder="Descreva sua aversão"></textarea>
     </div>
 </fieldset>
    <!-- Seção 5: Saúde Feminina (Exclusivo para Mulheres) -->
@@ -282,7 +270,7 @@ Preencha as perguntas abaixo para que nossa equipe possa indicar o melhor tratam
 <legend>Saúde Feminina (Exclusivo para Mulheres)</legend>
 <div class="form-group">
     <label for="idade-menarca">17. Idade da menarca? (primeira menstruação)</label>
-    <input type="number" id="idade-menarca" name="idade_menarca" min="8" max="20" 
+    <input type="number" id="idade-menarca" name="idade_menarca" min="8" max="20"
            class="form-input" placeholder="Idade em anos">
 </div>
 
@@ -331,5 +319,39 @@ Preencha as perguntas abaixo para que nossa equipe possa indicar o melhor tratam
 <p>Clínica Cris Moro &copy; <span id="current-year"></span>. Todos os direitos reservados.</p>
 <p>Entre em contato: contato@clinicacrismoro.com.br | (00) 0000-0000</p>
 </footer>
+
+<!-- Modal de Agradecimento -->
+<div id="agradecimento-modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h2>Obrigado!</h2>
+    <p>Suas respostas foram enviadas com sucesso. Entraremos em contato em breve!</p>
+    <button onclick="fecharModal()">Fechar</button>
+  </div>
+</div>
+<script>
+document.getElementById("clinica-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // impede envio imediato do formulário
+
+    // Envia os dados via fetch
+    fetch(this.action, {
+        method: this.method,
+        body: new FormData(this)
+    }).then(response => {
+        if (response.ok) {
+            document.getElementById("agradecimento-modal").style.display = "flex";
+            this.reset(); // limpa o formulário se quiser
+        } else {
+            alert("Erro ao enviar. Tente novamente.");
+        }
+    }).catch(error => {
+        console.error("Erro no envio:", error);
+        alert("Erro inesperado. Tente mais tarde.");
+    });
+});
+
+function fecharModal() {
+    document.getElementById("agradecimento-modal").style.display = "none";
+}
+</script>
 </body>
 </html>
